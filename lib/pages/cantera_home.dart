@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:parcial/pages/clientes_home.dart';
 
 class CanteraHome extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -43,10 +42,7 @@ class CanteraHome extends StatelessWidget {
         ),
         body: TabBarView(
             children: [
-              Container(
-                color: Colors.red,
-                child: Text(''),
-              ),
+               ClientesHome(),
                Container(
                 child: Text(''),
               ),

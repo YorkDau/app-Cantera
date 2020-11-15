@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:parcial/pages/cantera_home.dart';
+import 'package:parcial/providers/cliente_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,10 +12,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'Poppins'),
-      home: CanteraHome()
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => ClienteProvider())
+        ],
+        child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(fontFamily: 'Poppins'),
+        home: CanteraHome()
+      ),
     );
   }
 }
