@@ -20,6 +20,19 @@ class Cliente {
     
    }
 
+   Map<String,dynamic> toMap() {
+     return {
+      'id' : this.id,
+      'identificacion':this.identificacion,
+      'nombre':this.nombre,
+      'telefono':this.telefono,
+      'tipo': this.tipo,
+      'direccion' : this.ubicacion.direccion,
+      'departamento':this.ubicacion.departamento,
+      'municipio':this.ubicacion.municipio
+     };
+   }
+
 }
 
 class Ubicacion {

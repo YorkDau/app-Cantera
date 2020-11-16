@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:parcial/models/cliente.dart';
+import 'package:parcial/pages/cliente_update.dart';
+import 'package:parcial/pages/clietes_create.dart';
 import 'package:parcial/providers/cliente_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -6,32 +9,39 @@ class ClientesHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<ClienteProvider>(context);
-    provider.updateListClientes();
+    //provider.updateListClientes();
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
       child: Column(
          children: [
               Expanded(
-               child: ListView(
-                 children: provider.clientes == null ? [] : provider.clientes.map((e){
-                   return cards(id:e.id,identificacion: e.identificacion,nombre: e.nombre,provider: provider);
-                 }).toList()
-               ),
-               
+               child: FutureBuilder(
+                 future: provider.clientes,
+                 builder: (_,AsyncSnapshot<List<Cliente>> snapshot){
+                   return ListView(
+                      children: snapshot.data == null ? [] : snapshot.data.map((cliente){
+                        return cards(cliente: cliente,provider: provider,context: context);
+                      }).toList()
+                    );
+                 },
+               )
              ),
-              ElevatedButton(
-                  style: ButtonStyle(
-                    
-                  ),
-                  child: Text('new customer'),
-                  onPressed: null,
-              ),
+             FlatButton(
+                color: Color.fromRGBO(165, 24, 181, 1),
+                onPressed: (){
+                   Navigator.push(
+                     context,
+                     MaterialPageRoute(builder: (_) => ClienteCreate())
+                   ); 
+                },
+                child: Text('new customer',style: TextStyle(color: Colors.white),)
+             )
          ],
       ),
     );
   }
 
-  Widget cards({String id, String nombre, String identificacion,ClienteProvider provider}) {
+  Widget cards({Cliente cliente,ClienteProvider provider, BuildContext context}) {
     return Card(
       shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)) ,
       child: Container(
@@ -49,16 +59,18 @@ class ClientesHome extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                          Text(nombre),
-                          Text('ID: $identificacion')
+                          Text(cliente.nombre),
+                          Text('ID: ${cliente.identificacion}')
                       ],
                     ),
                     Expanded(child: SizedBox(),),
                     IconButton(icon: Icon(Icons.edit), onPressed:() {
-                    
+                       Navigator.of(context).push(
+                         MaterialPageRoute(builder: (_) => ClienteUpdate(cliente))
+                       );
                     }),
                     IconButton(icon: Icon(Icons.delete), onPressed: (){
-                        provider.delete(id);
+                        provider.delete(cliente.id);
                     })  
                   ],
                 )

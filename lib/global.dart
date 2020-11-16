@@ -1,0 +1,2 @@
+const SERVER_NAME = '192.168.1.14';
+const SERVER_PORT = '8000';
