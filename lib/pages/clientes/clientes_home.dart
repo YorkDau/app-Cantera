@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:parcial/models/cliente.dart';
-import 'package:parcial/pages/cliente_update.dart';
-import 'package:parcial/pages/clietes_create.dart';
+import 'package:parcial/pages/clientes/cliente_update.dart';
+import 'package:parcial/pages/clientes/clientes_create.dart';
+
+
 import 'package:parcial/providers/cliente_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -40,7 +42,6 @@ class ClientesHome extends StatelessWidget {
       ),
     );
   }
-
   Widget cards({Cliente cliente,ClienteProvider provider, BuildContext context}) {
     return Card(
       shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)) ,
@@ -66,9 +67,11 @@ class ClientesHome extends StatelessWidget {
                     Expanded(child: SizedBox(),),
                     IconButton(icon: Icon(Icons.edit), onPressed:() {
                        Navigator.of(context).push(
-                         MaterialPageRoute(builder: (_) => ClienteUpdate(cliente))
+                         MaterialPageRoute(builder: (_) => ClienteUpdate(cliente)
+                         ),
                        );
-                    }),
+                    }
+                    ),
                     IconButton(icon: Icon(Icons.delete), onPressed: (){
                         provider.delete(cliente.id);
                     })  

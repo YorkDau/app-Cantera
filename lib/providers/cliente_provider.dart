@@ -17,16 +17,17 @@ class ClienteProvider extends ChangeNotifier {
 
     if(response.statusCode == 200){
       List<dynamic> resource = json.decode(response.body);
+
       List<Cliente> clientes = resource.map((e) {
         return Cliente.fromMap(e);
-      }).toList(); 
+      }).toList();
+
+
       setCliente = clientes;
     }
-
     return this._clientes;
 
   }
-  
   set setCliente(List<Cliente> clientes) {
       this._clientes = clientes;
   }
@@ -36,7 +37,6 @@ class ClienteProvider extends ChangeNotifier {
         'http://$SERVER_NAME:$SERVER_PORT/api/cliente/${cliente.id}',
          body: cliente.toMap()
       );
-      print(response);
       notifyListeners();
   }
   
@@ -45,6 +45,7 @@ class ClienteProvider extends ChangeNotifier {
       var response = await http.post(
         'http://$SERVER_NAME:$SERVER_PORT/api/cliente',
          body: cliente.toMap()
+
       );
       notifyListeners();
   }
