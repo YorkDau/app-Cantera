@@ -36,7 +36,7 @@ class ClientesHome extends StatelessWidget {
                      MaterialPageRoute(builder: (_) => ClienteCreate())
                    ); 
                 },
-                child: Text('new customer',style: TextStyle(color: Colors.white),)
+                child: Text('Nuevo Cliente',style: TextStyle(color: Colors.white),)
              )
          ],
       ),

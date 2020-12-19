@@ -57,11 +57,21 @@ class CanteraHome extends StatelessWidget {
             ClientesHome(),
             MaterialHome(),
             Container(
-              child: Text('material'),
-            ),
+                child: FlatButton(
+                  color: Color.fromRGBO(165, 24, 181, 1),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child : Text(
+                    "nvudvuibi"
+                  ),
+                ),
+              ),
           ],
         ),
       ),
     );
   }
+
 }
+

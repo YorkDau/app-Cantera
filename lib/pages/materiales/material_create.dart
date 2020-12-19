@@ -54,7 +54,7 @@ class _MaterialCreateState extends State<MaterialCreate> {
                   provider.saveMaterial(material);
                   Navigator.pop(context);
                 },
-                child: Text('save',style: TextStyle(color: Colors.white),
+                child: Text('Guardar',style: TextStyle(color: Colors.white),
                 ),
             ),
           ),

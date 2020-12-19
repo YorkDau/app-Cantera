@@ -63,7 +63,7 @@ class _MaterialUpdateState extends State<MaterialUpdate> {
                   Navigator.pop(context);
                 },
                 child: Text(
-                  'save',
+                  'Actualizar',
                   style: TextStyle(color: Colors.white),
                 )),
           )

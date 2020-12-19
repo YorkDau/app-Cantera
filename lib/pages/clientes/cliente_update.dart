@@ -44,7 +44,7 @@ class _ClienteUpdateState extends State<ClienteUpdate> {
          iconTheme: IconThemeData(color: Colors.black) ,
          elevation: 0,
          backgroundColor: Colors.white,
-         title: Text('new customer',style: TextStyle(color: Colors.black),),
+         title: Text('Nuevo Cliente',style: TextStyle(color: Colors.black),),
          centerTitle: true,
        ),
        body: ListView(
@@ -153,7 +153,7 @@ class _ClienteUpdateState extends State<ClienteUpdate> {
                     provider.updateCliente(cliente);
                     Navigator.pop(context);
                   },
-                  child: Text('save',style: TextStyle(color: Colors.white),)
+                  child: Text('Actualizar',style: TextStyle(color: Colors.white),)
                ),
            )
          ],
