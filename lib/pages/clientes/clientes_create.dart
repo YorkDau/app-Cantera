@@ -124,7 +124,7 @@ class _ClienteCreateState extends State<ClienteCreate> {
            Container(
              margin: EdgeInsets.all(10.0),
              child: FlatButton(
-                 color: Color.fromRGBO(165, 24, 181, 1),
+                 color: Color(0xFF45BF55),
                   onPressed: _showAlertDialog,
                   child: Text('Guardar',style: TextStyle(color: Colors.white),)
                ),
@@ -147,7 +147,7 @@ class _ClienteCreateState extends State<ClienteCreate> {
                 onPressed: (){ Navigator.of(context).pop(); },
               ),
               FlatButton(
-                color: Color.fromRGBO(165, 24, 181, 1),
+                color: Color(0xFF45BF55),
                 onPressed: (){
                   Cliente cliente = new Cliente(
                       identificacion: _identificacion.text,

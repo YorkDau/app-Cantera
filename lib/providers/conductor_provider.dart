@@ -33,8 +33,7 @@ class ConductorProvider extends ChangeNotifier {
   }
 
   updateConductor(Conductor conductor) async {
-    var response = await http.put(
-        'http://$SERVER_NAME:$SERVER_PORT/api/conductor/${conductor.id}',
+    var response = await http.put('http://$SERVER_NAME:$SERVER_PORT/api/conductor/${conductor.id}',
         body: conductor.toMap()
     );
     notifyListeners();

@@ -136,7 +136,7 @@ class _ClienteUpdateState extends State<ClienteUpdate> {
            Container(
              margin: EdgeInsets.all(10.0),
              child: FlatButton(
-                  color: Color.fromRGBO(165, 24, 181, 1),
+                  color: Color(0xFF45BF55),
                   onPressed: (){
                     Cliente cliente = new Cliente(
                       id: widget.cliente.id,

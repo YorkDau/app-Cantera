@@ -53,7 +53,7 @@ class _MaterialUpdateState extends State<MaterialUpdate> {
           Container(
             margin: EdgeInsets.all(10.0),
             child: FlatButton(
-                color: Color.fromRGBO(165, 24, 181, 1),
+                color: Color(0xFF45BF55),
                 onPressed: () {
                   Materiales materiale = new Materiales(
                       id: widget.materiale.id,

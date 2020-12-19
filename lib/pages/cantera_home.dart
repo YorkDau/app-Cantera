@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:parcial/pages/Conductores/conductor_home.dart';
 import 'package:parcial/pages/clientes/clientes_home.dart';
 import 'package:parcial/pages/materiales/material_home.dart';
 
@@ -38,9 +39,9 @@ class CanteraHome extends StatelessWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Color.fromRGBO(165, 24, 181, 0.6),
-                    Color.fromRGBO(165, 24, 181, 0.8),
-                    Color.fromRGBO(165, 24, 181, 1)
+                    Color.fromRGBO(69, 191, 85, 0.6),
+                    Color.fromRGBO(69, 191, 85,0.8),
+                    Color.fromRGBO(69, 191, 85, 1)
                   ]
               ),
               color: Colors.orange,
@@ -56,17 +57,7 @@ class CanteraHome extends StatelessWidget {
           children: [
             ClientesHome(),
             MaterialHome(),
-            Container(
-                child: FlatButton(
-                  color: Color.fromRGBO(165, 24, 181, 1),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child : Text(
-                    "nvudvuibi"
-                  ),
-                ),
-              ),
+            ConductoresHome()
           ],
         ),
       ),

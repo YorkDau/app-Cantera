@@ -48,7 +48,7 @@ class _MaterialCreateState extends State<MaterialCreate> {
           Container(
             margin: EdgeInsets.all(10.0),
             child: FlatButton(
-                color: Color.fromRGBO(165, 24, 181, 1),
+                color: Color(0xFF45BF55),
                 onPressed: (){
                   Materiales material = new Materiales(nombre: _nombre.text,);
                   provider.saveMaterial(material);
